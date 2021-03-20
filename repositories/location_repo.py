@@ -29,3 +29,12 @@ def select(id):
     if result is not None:
         location = Location(result['name'], result['category'], result['id'] )
     return location
+
+def delete_all():
+    sql = "DELETE FROM locations"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM locations WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
