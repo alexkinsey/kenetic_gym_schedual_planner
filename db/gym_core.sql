@@ -26,7 +26,7 @@ CREATE TABLE customers (
     membership membership_types,
     join_date DATE, 
     post_code VARCHAR(10),
-    phone_number VARCHAR(11),
+    phone_number VARCHAR(15),
     email VARCHAR(255)
 );
 
