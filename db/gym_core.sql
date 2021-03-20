@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS attendance;
-DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS fitness_classes;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS trainers;
 DROP TABLE IF EXISTS locations;
