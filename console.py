@@ -1,15 +1,20 @@
+import pdb
+
 # code to set up db
 from models.location import Location
 from models.trainer import Trainer
 from models.customer import Customer
+from models.fitness_class import FitnessClass
 
 import repositories.location_repo as location_repo
 import repositories.trainer_repo as trainer_repo
 import repositories.customer_repo as customer_repo
+import repositories.fitness_class_repo as fitness_class_repo
 
 location_repo.delete_all()
 trainer_repo.delete_all()
 customer_repo.delete_all()
+fitness_class_repo.delete_all()
 
 location1 = Location('Studio 1')
 location_repo.save(location1)
@@ -35,3 +40,8 @@ customer4 = Customer('James', 'Holden', 'standard', '2019/06/13', 'EH7 9DE', '07
 customer_repo.save(customer4)
 customer5 = Customer('Gary', 'McDonald', 'standard', '2021/01/14', 'EH15 7ST', '07695844449', 'gary.mcdonals@email.com')
 customer_repo.save(customer5)
+
+fitness_class1 = FitnessClass('Body Attack', trainer2, location1, '2021/03/10', '13:00', 35)
+fitness_class_repo.save(fitness_class1)
+
+pdb.set_trace()
