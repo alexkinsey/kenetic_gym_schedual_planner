@@ -18,14 +18,15 @@ CREATE TABLE trainers(
     last_name VARCHAR(255)
 );
 
+-- NOTE the prefed date formate is YYYY/MM/DD
 CREATE TABLE customers (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     membership membership_types,
-    join_date DATE,
-    post_code VARCHAR(255),
-    phone_number INT,
+    join_date DATE, 
+    post_code VARCHAR(10),
+    phone_number VARCHAR(11),
     email VARCHAR(255)
 );
 

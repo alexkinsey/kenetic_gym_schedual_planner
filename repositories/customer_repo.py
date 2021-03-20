@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.customer import Customer
 
 def save(customer):
-    sql = """INSERT INTO customer (first_name, last_name, membership, join_date, post_code, phone_number, email) 
+    sql = """INSERT INTO customers (first_name, last_name, membership, join_date, post_code, phone_number, email) 
         VALUES ( %s, %s, %s, %s, %s, %s, %s) RETURNING id
     """
     values = [customer.first_name, customer.last_name, 
