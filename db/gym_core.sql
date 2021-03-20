@@ -42,6 +42,6 @@ CREATE TABLE fitness_classes (
 
 CREATE TABLE attendance (
     id SERIAL PRIMARY KEY,
-    class_id INT REFERENCES fitness_classes ON DELETE CASCADE,
+    fitness_class_id INT REFERENCES fitness_classes ON DELETE CASCADE,
     customer_id INT REFERENCES customers ON DELETE CASCADE
 );
