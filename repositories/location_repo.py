@@ -26,7 +26,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        location = Location(result['name'], result['category'], result['id'] )
+        location = Location(result['name'], result['id'] )
     return location
 
 def delete_all():
