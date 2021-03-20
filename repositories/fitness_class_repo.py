@@ -22,7 +22,7 @@ def select_all():
     for row in results:
         trainer = trainer_repo.select(row['trainer_id'])
         location = location_repo.select(row['location_id'])
-        fitness_class = FitnessClass(row['title'], trainer, location, row['date'], row['time'], row['capacity'])
+        fitness_class = FitnessClass(row['title'], trainer, location, row['date'], row['time'], row['capacity'], row['id'])
         fitness_classes.append(fitness_class)
     return fitness_classes
 
@@ -35,7 +35,7 @@ def select(id):
     if result is not None:
         trainer = trainer_repo.select(result['trainer_id'])
         location = location_repo.select(result['location_id'])
-        fitness_class = FitnessClass(result['title'], trainer, location, result['date'], result['time'], result['capacity'])
+        fitness_class = FitnessClass(result['title'], trainer, location, result['date'], result['time'], result['capacity'], result['id'])
     return fitness_class
 
 def delete_all():
