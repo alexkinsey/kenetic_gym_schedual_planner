@@ -30,7 +30,7 @@ CREATE TABLE customers (
     email VARCHAR(255)
 );
 
-CREATE TABLE classes (
+CREATE TABLE fitness_classes (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     trainer_id INT REFERENCES trainers ON DELETE CASCADE,
@@ -42,6 +42,6 @@ CREATE TABLE classes (
 
 CREATE TABLE attendance (
     id SERIAL PRIMARY KEY,
-    class_id INT REFERENCES classes ON DELETE CASCADE,
+    class_id INT REFERENCES fitness_classes ON DELETE CASCADE,
     customer_id INT REFERENCES customers ON DELETE CASCADE
 );
