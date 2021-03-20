@@ -5,16 +5,20 @@ from models.location import Location
 from models.trainer import Trainer
 from models.customer import Customer
 from models.fitness_class import FitnessClass
+from models.attendance import Attendance
 
 import repositories.location_repo as location_repo
 import repositories.trainer_repo as trainer_repo
 import repositories.customer_repo as customer_repo
 import repositories.fitness_class_repo as fitness_class_repo
+import repositories.attendance_repo as attendance_repo
 
 location_repo.delete_all()
 trainer_repo.delete_all()
 customer_repo.delete_all()
 fitness_class_repo.delete_all()
+attendance_repo.delete_all()
+
 
 location1 = Location('Studio 1')
 location_repo.save(location1)
@@ -49,5 +53,8 @@ fitness_class3 = FitnessClass('Zumba', trainer1, location1, '2021/03/10', '18:15
 fitness_class_repo.save(fitness_class3)
 fitness_class4 = FitnessClass('Yoga', trainer2, location2, '2021/03/10', '07:00', 20)
 fitness_class_repo.save(fitness_class4)
+
+attendance1 = Attendance(fitness_class1, customer2)
+attendance_repo.save(attendance1)
 
 pdb.set_trace()
