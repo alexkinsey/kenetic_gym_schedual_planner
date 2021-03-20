@@ -19,7 +19,6 @@ def select_all():
         locations.append(location)
     return locations
 
-
 def select(id):
     location = None
     sql = "SELECT * FROM locations WHERE id = %s"
