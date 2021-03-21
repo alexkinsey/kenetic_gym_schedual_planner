@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.fitness_class import FitnessClass
+from models.member import Member
 
 import repositories.trainer_repo as trainer_repo
 import repositories.location_repo as location_repo
@@ -58,3 +59,19 @@ def update(fitness_class):
     fitness_class.date, fitness_class.time, fitness_class.capacity, fitness_class.id]
     run_sql(sql, values)
     
+def members(fitness_class):
+    values = [fitness_class.id]
+    sql = """
+        SELECT members.* FROM members 
+        INNER JOIN attendance 
+        ON members.id = attendance.member_id
+        WHERE fitness_class_id = %s
+    """
+    results = run_sql(sql, values)
+
+    members = []
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['membership'], 
+        row['join_date'], row['post_code'], row['phone_number'], row['email'], row['id'])
+        members.append(member)
+    return members
