@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1>All classes</h1>
+    {% for fitness_class in all_fitness_classes %}
+        <p>{{ fitness_class.title }} with {{ fitness_class.trainer.first_name }}</p>
+        <a href="/classes/{{fitness_class.id}}"> show more</a>
+        <br>
+    {% endfor %}
+{% endblock %}
