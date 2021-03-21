@@ -5,8 +5,9 @@ import repositories.trainer_repo as trainer_repo
 import repositories.location_repo as location_repo
 
 def save(fitness_class):
-    sql = """INSERT INTO fitness_classes (title, trainer_id, location_id, date, time, capacity) 
-        VALUES ( %s, %s, %s, %s, %s, %s) RETURNING id
+    sql = """
+    INSERT INTO fitness_classes (title, trainer_id, location_id, date, time, capacity) 
+    VALUES ( %s, %s, %s, %s, %s, %s) RETURNING id
     """
     values = [fitness_class.title, fitness_class.trainer.id, fitness_class.location.id, 
     fitness_class.date, fitness_class.time, fitness_class.capacity]
@@ -46,3 +47,14 @@ def delete(id):
     sql = "DELETE FROM fitness_classes WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def update(fitness_class):
+    sql = """
+    UPDATE fitness_classes SET (title, trainer_id, location_id, date, time, capacity) 
+    = ( %s, %s, %s, %s, %s, %s)
+    WHERE id = %s
+    """
+    values = [fitness_class.title, fitness_class.trainer.id, fitness_class.location.id, 
+    fitness_class.date, fitness_class.time, fitness_class.capacity, fitness_class.id]
+    run_sql(sql, values)
+    

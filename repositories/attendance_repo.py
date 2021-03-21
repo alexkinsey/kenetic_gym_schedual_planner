@@ -5,7 +5,8 @@ import repositories.customer_repo as customer_repo
 import repositories.fitness_class_repo as fitness_class_repo
 
 def save(attendance):
-    sql = """INSERT INTO attendance (fitness_class_id, customer_id) 
+    sql = """
+    INSERT INTO attendance (fitness_class_id, customer_id) 
     VALUES ( %s, %s ) RETURNING id
     """
     values = [attendance.fitness_class.id, attendance.customer.id]
@@ -45,3 +46,12 @@ def delete(id):
     sql = "DELETE FROM attendance WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def update(attendance):
+    sql = """
+    UPDATE attendance SET (fitness_class_id, customer_id) = ( %s, %s ) 
+    WHERE id = %s
+    """
+    values = [attendance.fitness_class.id, attendance.customer.id, attendance.id]
+    results = run_sql(sql, values)
+    

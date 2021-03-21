@@ -2,8 +2,9 @@ from db.run_sql import run_sql
 from models.customer import Customer
 
 def save(customer):
-    sql = """INSERT INTO customers (first_name, last_name, membership, join_date, post_code, phone_number, email) 
-        VALUES ( %s, %s, %s, %s, %s, %s, %s) RETURNING id
+    sql = """
+    INSERT INTO customers (first_name, last_name, membership, join_date, post_code, phone_number, email) 
+    VALUES ( %s, %s, %s, %s, %s, %s, %s) RETURNING id
     """
     values = [customer.first_name, customer.last_name, 
     customer.membership, customer.join_date, 
@@ -43,4 +44,16 @@ def delete_all():
 def delete(id):
     sql = "DELETE FROM customers WHERE id = %s"
     values = [id]
+    run_sql(sql, values)
+
+def update(customer):
+    sql = """
+    UPDATE customers SET 
+    (first_name, last_name, membership, join_date, post_code, phone_number, email) 
+    = (%s, %s, %s, %s, %s, %s, %s) 
+    WHERE id = %s
+    """
+    values = [customer.first_name, customer.last_name, 
+    customer.membership, customer.join_date, 
+    customer.post_code, customer.phone_number, customer.email, customer.id]
     run_sql(sql, values)
