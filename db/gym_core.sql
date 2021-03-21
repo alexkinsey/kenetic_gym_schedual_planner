@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS attendance;
 DROP TABLE IF EXISTS fitness_classes;
-DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS trainers;
 DROP TABLE IF EXISTS locations;
 DROP TYPE IF EXISTS membership_types;
@@ -19,7 +19,7 @@ CREATE TABLE trainers(
 );
 
 -- NOTE the prefed date formate is YYYY/MM/DD
-CREATE TABLE customers (
+CREATE TABLE members (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
@@ -43,5 +43,5 @@ CREATE TABLE fitness_classes (
 CREATE TABLE attendance (
     id SERIAL PRIMARY KEY,
     fitness_class_id INT REFERENCES fitness_classes ON DELETE CASCADE,
-    customer_id INT REFERENCES customers ON DELETE CASCADE
+    member_id INT REFERENCES members ON DELETE CASCADE
 );
