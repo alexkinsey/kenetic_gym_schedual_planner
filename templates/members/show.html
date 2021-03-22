@@ -1,15 +1,20 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    <h1>Member</h1>
-    <br>
-    <h2>{{ member.first_name }}</h2>
-    <br>
+    <h1>{{member.first_name}} {{member.last_name}} - {{member.membership.capitalize()}} Member</h1>
+    <p>Joined: {{member.join_date}}</p>
+    <h3>Contact info:</h3>
+    <p>Phone number: {{member.phone_number}}</p>
+    <p>Email: {{member.email}}</p>
+    <p>Post Code: {{member.post_code}}</p>
+    
     <a href="/members/{{member.id}}/edit">Edit account</a>
     <form action="/members/{{ member.id }}/delete" method="post">
         <input type="submit" value="Delete Account">
     </form>
+    <br>
 
+    <h1>Upcoming booked classes</h1>
     {% for fitness_class in fitness_classes %}
     <p>
         {{fitness_class.title}} with {{ fitness_class.trainer.first_name }} on {{ fitness_class.date }} at {{ fitness_class.time }}

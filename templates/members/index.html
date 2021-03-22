@@ -2,13 +2,11 @@
 
 {% block content %}
     <h1>All members</h1>
-    <br>
     <a href="members/new">Create new member</a>
     {% for member in all_members %}
         <p>
-            {{member.first_name}} {{member.last_name}} - {{member.membership}}
+            {{member.first_name}} {{member.last_name}} - {{member.membership.capitalize()}} Membership - Joined {{member.join_date}}
             <a href="/members/{{member.id}}">more...</a>
         </p>
-        <br>
     {% endfor %}
 {% endblock %}

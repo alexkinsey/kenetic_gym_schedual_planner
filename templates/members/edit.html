@@ -2,7 +2,6 @@
 
 {% block content %}
     <h1>Edit {{member.first_name}} {{member.last_name}}'s details</h1>
-    <br>
     <form action="/members/{{member.id}}" method="post">
         <div>
             <label for="first_name">First Name:</label>
