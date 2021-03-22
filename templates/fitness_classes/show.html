@@ -5,6 +5,7 @@
     <br>
     <h2>{{ fitness_class.title }} on {{ fitness_class.date }} at {{ fitness_class.time }}</h2>
     <br>
+    <a href="/attendance/new/{{ fitness_class.id}}">Add member to class</a>
 
     {% for member in members %}
         <p>
