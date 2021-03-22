@@ -14,12 +14,18 @@
     <br>
 
     <h1>Upcoming booked classes</h1>
-    {% for fitness_class in fitness_classes %}
-    <p>
-        {{fitness_class.title}} with {{ fitness_class.trainer.first_name }} on {{ fitness_class.date }} at {{ fitness_class.time }}
-        <a href="/classes/{{fitness_class.id}}">more...</a>
-    </p>
+    <div class="content_container_row">
+        {% for fitness_class in fitness_classes %}
+        <a href="/classes/{{fitness_class.id}}" class="container_row">
+            <p>
+                {{fitness_class.title}} with {{ fitness_class.trainer.first_name }}
+            </p> 
+            <p>
+                on {{ fitness_class.date }} at {{ fitness_class.time }}
+            </p> 
+        </a>
     {% endfor %}
+    </div>
 
     <form action="/members/{{ member.id }}/delete" method="post">
         <input type="submit" value="Delete Account" class="delete_button">

@@ -1,7 +1,4 @@
-/* *{
-	margin: 0px;
-	padding: 0px;
-} */
+/* GLOBAL */
 html{
     background-color:#333333;
     text-decoration: none;
@@ -23,12 +20,16 @@ main{
     padding: 0px 10px;
 }
 
+/* CONTENT LAYOUT */
 .content_container{
     border: 1px solid grey;
     border-radius: 5px;
     background-color: #444444;
     width:960px;
     padding:20px;
+}
+.content_container_row{
+    margin: 25px 0px 25px 0px;
 }
 .container_row{
     text-decoration: none;
@@ -39,8 +40,10 @@ main{
     justify-content: space-between;
     align-items: center;
     height: 25px;
-    margin: 20px 0px;
+    margin: 10px 0px 0px 0px;
 }
+
+/* BUTTONS */
 .light_grey_button{
     text-decoration: none;
     color: white;
@@ -71,7 +74,7 @@ main{
     background-color: #b3b3b3;
 }
 
-/* The sidebar menu */
+/* SIDEBAR */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 140px; /* Set the width of the sidebar */
