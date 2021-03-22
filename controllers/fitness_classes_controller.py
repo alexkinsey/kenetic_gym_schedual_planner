@@ -49,3 +49,20 @@ def edit(id):
     all_trainers = trainer_repo.select_all()
     all_locations = location_repo.select_all()
     return render_template('/fitness_classes/edit.html', fitness_class=found_fitness_class, trainers=all_trainers, locations=all_locations)
+
+# update fitness class db after edits
+@fitness_classes_blueprint.route('/classes/<id>', methods=['POST'])
+def update(id):
+    trainer = trainer_repo.select(request.form['trainer_id'])
+    location = location_repo.select(request.form['location_id'])
+    fitness_class = FitnessClass(
+        request.form['title'],
+        trainer,
+        location,
+        request.form['date'],
+        request.form['time'],
+        request.form['capacity'],
+        id
+    )
+    fitness_class_repo.update(fitness_class)
+    return redirect('/classes')
