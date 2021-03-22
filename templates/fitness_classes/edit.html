@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div class="content_container">
     <h1>Edit {{fitness_class.title}}</h1>
     <form action="/classes/{{fitness_class.id}}" method="post">
         <div>
@@ -41,4 +42,5 @@
         </div>
         <input type="submit">
     </form>
+</div>
 {% endblock %}

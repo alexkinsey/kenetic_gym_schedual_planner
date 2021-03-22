@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div class="content_container">
     <h1>{{member.first_name}} {{member.last_name}} - {{member.membership.capitalize()}} Member</h1>
     <p>Joined: {{member.join_date}}</p>
     <h3>Contact info:</h3>
@@ -23,4 +24,5 @@
     <form action="/members/{{ member.id }}/delete" method="post">
         <input type="submit" value="Delete Account">
     </form>
+</div>
 {% endblock %}

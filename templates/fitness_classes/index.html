@@ -1,12 +1,14 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    <h1>All classes</h1>
-    <a href="/classes/new">Create new class</a>
-    {% for fitness_class in all_fitness_classes %}
-        <p>
-            {{fitness_class.title}} with {{fitness_class.trainer.first_name}} on {{fitness_class.date}}
-            <a href="/classes/{{fitness_class.id}}">more...</a>
-        </p>
-    {% endfor %}
+    <div class="content_container">
+        <h1>All classes</h1>
+        <a href="/classes/new" class="new_class_button">Create new class</a>
+        {% for fitness_class in all_fitness_classes %}
+            <a href="/classes/{{fitness_class.id}}" class="class_row">
+                <p>{{fitness_class.title}} with {{fitness_class.trainer.first_name}}</p>
+                <p>{{fitness_class.date}}</p>
+            </a>
+        {% endfor %}
+    </div>
 {% endblock %}

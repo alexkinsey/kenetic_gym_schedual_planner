@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div class="content_container">
     <h1>All members</h1>
     <a href="members/new">Create new member</a>
     {% for member in all_members %}
@@ -9,4 +10,5 @@
             <a href="/members/{{member.id}}">more...</a>
         </p>
     {% endfor %}
+</div>
 {% endblock %}

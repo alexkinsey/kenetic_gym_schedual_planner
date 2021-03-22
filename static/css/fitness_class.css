@@ -1,0 +1,19 @@
+.new_class_button{
+    text-decoration: none;
+    color: white;
+    background-color: #5C5C5C;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.class_row{
+    text-decoration: none;
+    color: white;
+    background-color:#5C5C5C;
+    padding: 5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+    margin: 20px 0px;
+}

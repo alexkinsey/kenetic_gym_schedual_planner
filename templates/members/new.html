@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div class="content_container">
     <h1>Create new member</h1>
     <form action="/members" method="post">
         <div>
@@ -32,4 +33,5 @@
         </div>
         <input type="submit">
     </form>
+</div>
 {% endblock %}
