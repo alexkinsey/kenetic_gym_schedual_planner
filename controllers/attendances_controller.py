@@ -12,7 +12,7 @@ attendances_blueprint = Blueprint('attendances', __name__)
 def sign_up_member_form(id):
     found_fitness_class = fitness_class_repo.select(id)
     all_members = member_repo.select_all()
-    return render_template('/attendance/new.html', fitness_class=found_fitness_class, members=all_members)
+    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=all_members)
 
 # commit member to fitness class in db
 @attendances_blueprint.route('/attendances', methods=['POST'])
