@@ -5,6 +5,9 @@
     <br>
     <h2>{{ member.first_name }}</h2>
     <br>
+    <form action="/members/{{ member.id }}/delete" method="post">
+        <input type="submit" value="Delete Account">
+    </form>
 
     {% for fitness_class in fitness_classes %}
     <p>
