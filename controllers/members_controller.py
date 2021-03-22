@@ -18,6 +18,29 @@ def show(id):
     found_fitness_classes = member_repo.fitness_classes(found_member)
     return render_template('/members/show.html', member=found_member, fitness_classes=found_fitness_classes)
 
+# edit a members details
+@members_blueprint.route('/members/<id>/edit', methods=['GET'])
+def edit(id):
+    found_member = member_repo.select(id)
+    return render_template('/members/edit.html', member=found_member)
+
+# commit edits to a members
+@members_blueprint.route('/members/<id>', methods=['POST'])
+def update(id):
+    original_member = member_repo.select(id)
+    updated_member = Member(
+        request.form['first_name'], 
+        request.form['last_name'], 
+        request.form['membership'], 
+        original_member.join_date, 
+        request.form['post_code'], 
+        request.form['phone_number'], 
+        request.form['email'],
+        id
+    )
+    member_repo.update(updated_member)
+    return redirect('/members')
+
 # create a new member form
 @members_blueprint.route('/members/new', methods=['GET'])
 def new_member():
@@ -44,4 +67,3 @@ def create_member():
 def delete_member(id):
     member_repo.delete(id)
     return redirect('/members')
-    

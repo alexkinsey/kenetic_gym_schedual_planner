@@ -5,6 +5,7 @@
     <br>
     <h2>{{ member.first_name }}</h2>
     <br>
+    <a href="/members/{{member.id}}/edit">Edit account</a>
     <form action="/members/{{ member.id }}/delete" method="post">
         <input type="submit" value="Delete Account">
     </form>
