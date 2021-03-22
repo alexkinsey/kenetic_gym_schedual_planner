@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1>Create new class</h1>
+    <br>
+    <form action="/classes" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" placeholder="HH:MM" min="07:00" max="20:00" required>
+        
+        <label for="trainer">Trainer:</label>
+        <select name="trainer" id="trainer">
+            <option selected="true" disabled="disabled">Choose a trainer</option>
+            {% for trainer in trainers %}
+                <option value="{{trainer.id}}">{{trainer.first_name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="location">Location:</label>
+        <select name="location" id="location">
+            <option selected="true" disabled="disabled">Choose a location</option>
+            {% for location in locations %}
+                <option value="{{location.id}}">{{location.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="capacity">Capacity:</label>
+        <input type="number" name="capacity" id="capacity" min="0" max="50">
+
+        <input type="submit">
+    </form>
+{% endblock %}
