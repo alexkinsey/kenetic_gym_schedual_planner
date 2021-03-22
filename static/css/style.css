@@ -30,6 +30,17 @@ main{
     width:960px;
     padding:20px;
 }
+.container_row{
+    text-decoration: none;
+    color: white;
+    background-color:#5C5C5C;
+    padding: 5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+    margin: 20px 0px;
+}
 .light_grey_button{
     text-decoration: none;
     color: white;
@@ -39,12 +50,25 @@ main{
     border-radius: 10px;
 }
 .delete_button{
-    background-color: rgb(200, 40, 40);
+    background-color: #D14F41;
     color: white;
     font-size: 16px;
     padding: 10px;
-    border: 1px solid grey;
+    border: 1px solid #691109;
     border-radius: 10px;
+    cursor: pointer
+}
+.circle_delete_button{
+    display:block;
+    box-sizing:border-box;
+    width:25px;
+    height:25px;
+    border-width:5px;
+    border-style: solid;
+    border-color:#b3b3b3;
+    border-radius:100%;
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, #5C5C5C 46%,  #5C5C61 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, #5C5C5C 46%,  #5C5C5C 56%,transparent 56%, transparent 100%);
+    background-color: #b3b3b3;
 }
 
 /* The sidebar menu */

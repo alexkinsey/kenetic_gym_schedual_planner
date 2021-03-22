@@ -5,10 +5,17 @@
     <h1>All members</h1>
     <a href="members/new" class="light_grey_button">Create new member</a>
     {% for member in all_members %}
-        <p>
-            {{member.first_name}} {{member.last_name}} - {{member.membership.capitalize()}} Membership - Joined {{member.join_date}}
-            <a href="/members/{{member.id}}">more...</a>
-        </p>
+            <a href="/members/{{member.id}}" class="container_row">
+                <p>
+                    {{member.first_name}} {{member.last_name}}
+                </p>
+                <p>
+                    {{member.membership.capitalize()}} Membership
+                </p>
+                <p>
+                    Joined {{member.join_date}}
+                </p>
+            </a>
     {% endfor %}
 </div>
 {% endblock %}

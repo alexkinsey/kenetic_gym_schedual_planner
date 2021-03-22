@@ -12,15 +12,14 @@
     <h1>Members attending</h1>
 
     {% for member in members %}
-        <p>
+        <a href="/members/{{member.id}}" class="container_row">
             {{member.first_name}} {{member.last_name}} - {{member.membership}}
-            <a href="/members/{{member.id}}">more...</a>
             <form action="/attendances/{{member.id}}/delete" method="post">
                 <input type="hidden" name="member_id" value="{{member.id}}">
                 <input type="hidden" name="fitness_class_id" value="{{fitness_class.id}}">
-                <input type="submit" value="Remove from class">
+                <input type="submit" value="" class="circle_delete_button">
             </form>
-        </p>
+        </a>
     {% endfor %}
 </div>
 {% endblock %}
