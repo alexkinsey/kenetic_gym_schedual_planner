@@ -26,9 +26,11 @@
         </div>
         <div>
             <label for="membership">Membership Tier:</label>
-            <input type="radio" id="standard" name="membership" required value="standard">
+            <input type="radio" id="standard" name="membership" required value="standard" 
+            {% if member.membership == "standard" %} checked="checked" {% endif %}>
             <label for="standard">Standard</label>
-            <input type="radio" id="premium" name="membership" required value="premium">
+            <input type="radio" id="premium" name="membership" required value="premium"
+            {% if member.membership == "premium" %} checked="checked" {% endif %}>
             <label for="premium">Premium</label>
         </div>
         <input type="submit">
