@@ -3,7 +3,7 @@
 {% block content %}
     <div class="content_container">
         <h1>All classes</h1>
-        <a href="/classes/new" class="new_class_button">Create new class</a>
+        <a href="/classes/new" class="light_grey_button">Create new class</a>
         {% for fitness_class in all_fitness_classes %}
             <a href="/classes/{{fitness_class.id}}" class="class_row">
                 <p>{{fitness_class.title}} with {{fitness_class.trainer.first_name}}</p>

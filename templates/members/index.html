@@ -3,7 +3,7 @@
 {% block content %}
 <div class="content_container">
     <h1>All members</h1>
-    <a href="members/new">Create new member</a>
+    <a href="members/new" class="light_grey_button">Create new member</a>
     {% for member in all_members %}
         <p>
             {{member.first_name}} {{member.last_name}} - {{member.membership.capitalize()}} Membership - Joined {{member.join_date}}

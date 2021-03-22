@@ -6,8 +6,8 @@
     <h2>{{ fitness_class.date }} at {{ fitness_class.time }}</h2>
     <p>Held in {{fitness_class.location.name}}</p>
     <p>Max capacity: {{fitness_class.capacity}} people</p>
-    <a href="/attendances/new/{{ fitness_class.id}}">Add member to class</a>
-    <a href="/classes/{{fitness_class.id}}/edit">Edit class details</a>
+    <a href="/attendances/new/{{ fitness_class.id}}" class="light_grey_button">Add member to class</a>
+    <a href="/classes/{{fitness_class.id}}/edit" class="light_grey_button">Edit class details</a>
 
     <h1>Members attending</h1>
 

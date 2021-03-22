@@ -9,7 +9,7 @@
     <p>Email: {{member.email}}</p>
     <p>Post Code: {{member.post_code}}</p>
     
-    <a href="/members/{{member.id}}/edit">Edit account</a>
+    <a href="/members/{{member.id}}/edit" class="light_grey_button">Edit account</a>
     
     <br>
 
@@ -22,7 +22,7 @@
     {% endfor %}
 
     <form action="/members/{{ member.id }}/delete" method="post">
-        <input type="submit" value="Delete Account">
+        <input type="submit" value="Delete Account" class="delete_button">
     </form>
 </div>
 {% endblock %}

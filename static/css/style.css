@@ -18,6 +18,9 @@ main{
     margin-top: 20px;
     display: flex;
     justify-content: center;
+
+    margin-left: 140px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
 }
 
 .content_container{
@@ -26,6 +29,22 @@ main{
     background-color: #444444;
     width:960px;
     padding:20px;
+}
+.light_grey_button{
+    text-decoration: none;
+    color: white;
+    background-color: #5C5C5C;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 10px;
+}
+.delete_button{
+    background-color: rgb(200, 40, 40);
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
 }
 
 /* The sidebar menu */
@@ -55,12 +74,6 @@ main{
 }
 .sidenav-active{
     color: white;
-}
-  
-/* Style page content */
-main {
-    margin-left: 140px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
 }
   
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
