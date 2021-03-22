@@ -19,8 +19,25 @@ def show(id):
     found_members = fitness_class_repo.members(found_fitness_class)
     return render_template('/fitness_classes/show.html', members=found_members, fitness_class=found_fitness_class)
 
+# create new fitness class form
 @fitness_classes_blueprint.route('/classes/new', methods=['GET'])
 def new_fitness_class():
     all_trainers = trainer_repo.select_all()
     all_locations = location_repo.select_all()
     return render_template('/fitness_classes/new.html', trainers=all_trainers, locations=all_locations)
+
+# use form data to create new fitness class
+@fitness_classes_blueprint.route('/classes', methods=['POST'])
+def create_new_fitness():
+    trainer = trainer_repo.select(request.form['trainer_id'])
+    location = location_repo.select(request.form['location_id'])
+    fitness_class = FitnessClass(
+        request.form['title'],
+        trainer,
+        location,
+        request.form['date'],
+        request.form['time'],
+        request.form['capacity']
+    )
+    fitness_class_repo.save(fitness_class)
+    return redirect('/classes')
