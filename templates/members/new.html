@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1>Create new member</h1>
+    <br>
+    <form action="/members" method="post">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" id="phone_number">
+        <label for="post_code">Post Code:</label>
+        <input type="text" name="post_code" id="post_code">
+
+        <label for="membership">Membership Tier:</label>
+        <input type="radio" id="standard" name="membership" value="standard">
+        <label for="standard">Standard</label>
+        <input type="radio" id="premium" name="membership" value="premium">
+        <label for="premium">Premium</label>
+
+        <input type="submit">
+    </form>
+{% endblock %}
