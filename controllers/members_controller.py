@@ -1,5 +1,6 @@
 from flask import Flask, Blueprint, render_template, request, redirect
 from models.member import Member
+from datetime import datetime
 import repositories.member_repo as member_repo
 
 members_blueprint = Blueprint('members', __name__)
@@ -19,5 +20,20 @@ def show(id):
 
 # create a new member form
 @members_blueprint.route('/members/new', methods=['GET'])
-def create_form():
+def new_member():
     return render_template('/members/new.html')
+
+@members_blueprint.route('/members', methods=['POST'])
+def create_member():
+    date = datetime.today().strftime('%Y-%m-%d')
+    member = Member(
+        request.form['first_name'], 
+        request.form['last_name'], 
+        request.form['membership'], 
+        date, 
+        request.form['post_code'], 
+        request.form['phone_number'], 
+        request.form['email']
+    )
+    member_repo.save(member)
+    return redirect('/members')
