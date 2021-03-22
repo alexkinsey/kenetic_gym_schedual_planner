@@ -9,9 +9,7 @@
     <p>Post Code: {{member.post_code}}</p>
     
     <a href="/members/{{member.id}}/edit">Edit account</a>
-    <form action="/members/{{ member.id }}/delete" method="post">
-        <input type="submit" value="Delete Account">
-    </form>
+    
     <br>
 
     <h1>Upcoming booked classes</h1>
@@ -21,4 +19,8 @@
         <a href="/classes/{{fitness_class.id}}">more...</a>
     </p>
     {% endfor %}
+
+    <form action="/members/{{ member.id }}/delete" method="post">
+        <input type="submit" value="Delete Account">
+    </form>
 {% endblock %}

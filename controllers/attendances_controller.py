@@ -12,7 +12,8 @@ attendances_blueprint = Blueprint('attendances', __name__)
 def sign_up_member_form(id):
     found_fitness_class = fitness_class_repo.select(id)
     all_members = member_repo.select_all()
-    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=all_members)
+    all_attendances = attendance_repo.select_all()
+    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=all_members, attendances=all_attendances)
 
 # commit member to fitness class in db
 @attendances_blueprint.route('/attendances', methods=['POST'])
@@ -22,4 +23,13 @@ def update():
     attendance = Attendance(found_fitness_class, found_member)
 
     attendance_repo.save(attendance)
+    return redirect('/classes')
+
+# delete member from fitness class
+# <id> is customer id
+@attendances_blueprint.route('/attendances/<id>/delete', methods=['POST'])
+def delete(id):
+    member = member_repo.select(request.form['member_id'])
+    fitness_class = fitness_class_repo.select(request.form['fitness_class_id'])
+    attendance_repo.delete_by_fitness_class_and_member(fitness_class, member)
     return redirect('/classes')

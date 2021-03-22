@@ -3,6 +3,8 @@
 {% block content %}
     <h1>{{ fitness_class.title }} with {{ fitness_class.trainer.first_name }}</h1>
     <h2>{{ fitness_class.date }} at {{ fitness_class.time }}</h2>
+    <p>Held in {{fitness_class.location.name}}</p>
+    <p>Max capacity: {{fitness_class.capacity}} people</p>
     <a href="/attendances/new/{{ fitness_class.id}}">Add member to class</a>
     <a href="/classes/{{fitness_class.id}}/edit">Edit class details</a>
 
@@ -12,6 +14,11 @@
         <p>
             {{member.first_name}} {{member.last_name}} - {{member.membership}}
             <a href="/members/{{member.id}}">more...</a>
+            <form action="/attendances/{{member.id}}/delete" method="post">
+                <input type="hidden" name="member_id" value="{{member.id}}">
+                <input type="hidden" name="fitness_class_id" value="{{fitness_class.id}}">
+                <input type="submit" value="Remove from class">
+            </form>
         </p>
     {% endfor %}
 {% endblock %}

@@ -47,6 +47,11 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def delete_by_fitness_class_and_member(fitness_class, member):
+    sql = "DELETE FROM attendance WHERE fitness_class_id = %s AND member_id = %s"
+    values = [fitness_class.id, member.id]
+    run_sql(sql, values)
+
 def update(attendance):
     sql = """
     UPDATE attendance SET (fitness_class_id, member_id) = ( %s, %s ) 

@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>{{ fitness_class.title }} on {{ fitness_class.date }} at {{ fitness_class.time }}</h1>
-    
+
     <form action="/attendances" method="post">
         <div>
             <input type="hidden" name="fitness_class_id" value="{{fitness_class.id}}">
