@@ -2,9 +2,14 @@
 
 {% block content %}
     <h1>Member</h1>
+    <br>
     <h2>{{ member.first_name }}</h2>
+    <br>
 
     {% for fitness_class in fitness_classes %}
-    <p>{{fitness_class.title}} with {{ fitness_class.trainer.first_name }} on {{ fitness_class.date }} at {{ fitness_class.time }}</p>
+    <p>
+        {{fitness_class.title}} with {{ fitness_class.trainer.first_name }} on {{ fitness_class.date }} at {{ fitness_class.time }}
+        <a href="/classes/{{fitness_class.id}}">more...</a>
+    </p>
     {% endfor %}
 {% endblock %}

@@ -3,10 +3,13 @@
 {% block content %}
     <h1>Class</h1>
     <br>
-    <h2>{{ fitness_class.title }}</h2>
+    <h2>{{ fitness_class.title }} on {{ fitness_class.date }} at {{ fitness_class.time }}</h2>
     <br>
 
     {% for member in members %}
-        <p>{{member.first_name}} {{member.last_name}} - {{member.membership}}</p>
+        <p>
+            {{member.first_name}} {{member.last_name}} - {{member.membership}}
+            <a href="/members/{{member.id}}">more...</a>
+        </p>
     {% endfor %}
 {% endblock %}
