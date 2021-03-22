@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1>Edit {{fitness_class.title}}</h1>
+    <br>
+    <form action="/classes" method="post">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required value="{{fitness_class.title}}">
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required value="{{fitness_class.date}}">
+        </div>
+        <div>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" placeholder="HH:MM" min="07:00" max="20:00" required value="{{fitness_class.time}}">
+        </div>
+        <div>
+            <label for="trainer_id">Trainer:</label>
+            <select name="trainer_id" id="trainer_id">
+                {% for trainer in trainers %}
+                    <option value="{{trainer.id}}" {% if fitness_class.trainer.id == trainer.id %} selected="selected" {% endif %}>
+                        {{trainer.first_name}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="location_id">Location:</label>
+            <select name="location_id" id="location_id">
+                {% for location in locations %}
+                    <option value="{{location.id}}" {% if fitness_class.location.id == location.id %} selected="selected" {% endif %}>
+                        {{location.name}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="capacity">Capacity:</label>
+            <input type="number" name="capacity" id="capacity" min="0" max="50" required value="{{fitness_class.capacity}}">
+        </div>
+        <input type="submit">
+    </form>
+{% endblock %}

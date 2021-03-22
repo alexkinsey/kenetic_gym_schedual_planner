@@ -41,3 +41,11 @@ def create_new_fitness():
     )
     fitness_class_repo.save(fitness_class)
     return redirect('/classes')
+
+# edit current fitness class
+@fitness_classes_blueprint.route('/classes/<id>/edit', methods=['GET'])
+def edit(id):
+    found_fitness_class = fitness_class_repo.select(id)
+    all_trainers = trainer_repo.select_all()
+    all_locations = location_repo.select_all()
+    return render_template('/fitness_classes/edit.html', fitness_class=found_fitness_class, trainers=all_trainers, locations=all_locations)
