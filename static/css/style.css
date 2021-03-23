@@ -157,7 +157,8 @@ main{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #325D6A; 
+    background-color: #325D6A;
+    /* background-color: #444444;  */
     overflow-x: hidden; /* Disable horizontal scroll */
 }
   
@@ -172,7 +173,6 @@ main{
 }
 .sidenav_button{
     display: block;
-    /* background: url(/static/images/nav_buttons/home_active.png) ; */
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
@@ -183,6 +183,18 @@ main{
 .sidenav_button:hover {
     cursor: pointer;
     opacity: 1;
+}
+.sidenav_button_account{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60%;
+    height: auto;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

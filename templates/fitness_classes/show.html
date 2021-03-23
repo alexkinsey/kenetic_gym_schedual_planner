@@ -5,7 +5,13 @@
     <h1>{{ fitness_class.title }} with {{ fitness_class.trainer.first_name }}</h1>
     <h2>{{ fitness_class.date }} at {{ fitness_class.time }}</h2>
     <p>Held in {{fitness_class.location.name}}</p>
+
+    {% if availability <= fitness_class.capacity and availability > 0 %}
     <p>Currently {{availability}} of {{fitness_class.capacity}} slots available</p>
+    {% else %}
+    <p>No slots available</p>
+    {% endif %}
+
     <a href="/classes/{{fitness_class.id}}/edit" class="light_grey_button">Edit class details</a>
 
     <h1>Members attending</h1>

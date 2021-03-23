@@ -11,7 +11,7 @@
             <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required value="{{fitness_class.date}}" class="new_item_input">
 
             <label for="time" class="new_item_label">Time:</label>
-            <input type="time" id="time" name="time" placeholder="HH:MM" min="07:00" max="20:00" required value="{{fitness_class.time}}" class="new_item_input">
+            <input type="time" id="time" name="time" placeholder="HH:MM" step=300 min="07:00" max="20:00" required value="{{fitness_class.time}}" class="new_item_input">
 
             <label for="trainer_id" class="new_item_label">Trainer:</label>
             <select name="trainer_id" id="trainer_id" class="new_item_input">
