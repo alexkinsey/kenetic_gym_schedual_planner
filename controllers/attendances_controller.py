@@ -11,21 +11,8 @@ attendances_blueprint = Blueprint('attendances', __name__)
 @attendances_blueprint.route('/attendances/new/<id>', methods=['GET'])
 def sign_up_member_form(id):
     found_fitness_class = fitness_class_repo.select(id)
-    all_members = member_repo.select_all()
-    all_attendances = attendance_repo.select_all()
-
-    current_attendances = attendance_repo.select_by_fitness_class(found_fitness_class)
-    not_attending = []
-    # looping around all member to check if they are already attending
-    for member in all_members:
-        on_fitness_class = False
-        for current_attendance in current_attendances:
-            if member.id == current_attendance.member.id:
-                on_fitness_class = True
-                break
-        if not on_fitness_class:
-            not_attending.append(member)
-    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=not_attending, attendances=all_attendances)
+    not_attending = fitness_class_repo.not_members(found_fitness_class)
+    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=not_attending)
    
 
 # commit member to fitness class in db

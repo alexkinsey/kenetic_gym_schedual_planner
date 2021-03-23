@@ -75,3 +75,23 @@ def members(fitness_class):
         row['join_date'], row['post_code'], row['phone_number'], row['email'], row['id'])
         members.append(member)
     return members
+    
+# return members that don't exist in the attendance table for a given fitness class id
+def not_members(fitness_class):
+    sql = """
+        SELECT members.* FROM members
+        WHERE NOT EXISTS (
+	    SELECT
+	    FROM attendance
+	    WHERE members.id = attendance.member_id
+	    AND attendance.fitness_class_id = %s)
+    """
+    values = [fitness_class.id]
+    results = run_sql( sql, values )
+
+    members = []
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['membership'], 
+        row['join_date'], row['post_code'], row['phone_number'], row['email'], row['id'])
+        members.append(member)
+    return members
