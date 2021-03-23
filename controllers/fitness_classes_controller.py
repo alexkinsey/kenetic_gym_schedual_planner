@@ -18,6 +18,7 @@ def index():
 def show(id):
     found_fitness_class = fitness_class_repo.select(id)
     found_members = fitness_class_repo.members(found_fitness_class)
+    # availability needs to be calculated to verify where or not the add member to class button is to show
     calc_availability = found_fitness_class.capacity - len(attendance_repo.select_by_fitness_class(found_fitness_class))
     return render_template(
         '/fitness_classes/show.html', 
@@ -36,18 +37,21 @@ def new_fitness_class():
 # use form data to create new fitness class
 @fitness_classes_blueprint.route('/classes', methods=['POST'])
 def create_new_fitness():
-    trainer = trainer_repo.select(request.form['trainer_id'])
-    location = location_repo.select(request.form['location_id'])
-    fitness_class = FitnessClass(
-        request.form['title'],
-        trainer,
-        location,
-        request.form['date'],
-        request.form['time'],
-        request.form['capacity']
-    )
-    fitness_class_repo.save(fitness_class)
-    return redirect('/classes')
+    try:
+        trainer = trainer_repo.select(request.form['trainer_id'])
+        location = location_repo.select(request.form['location_id'])
+        fitness_class = FitnessClass(
+            request.form['title'],
+            trainer,
+            location,
+            request.form['date'],
+            request.form['time'],
+            request.form['capacity']
+        )
+        fitness_class_repo.save(fitness_class)
+        return redirect('/classes')
+    except:
+        return render_template('/errors/missing_data.html'), 405
 
 # edit current fitness class
 @fitness_classes_blueprint.route('/classes/<id>/edit', methods=['GET'])

@@ -20,6 +20,7 @@ def sign_up_member_form(id):
 def update():
     found_member = member_repo.select(request.form['member_id'])
     found_fitness_class = fitness_class_repo.select(request.form['fitness_class_id'])
+    # verify there is availability on the class if for some reason the user manages to get this far
     calc_availability = found_fitness_class.capacity - len(attendance_repo.select_by_fitness_class(found_fitness_class))
     if calc_availability > 0:
         attendance = Attendance(found_fitness_class, found_member)
@@ -40,7 +41,3 @@ def delete(id):
     id_str = str(fitness_class.id)
     url = '/classes/' + id_str
     return redirect(url)
-
-@attendances_blueprint.errorhandler(405)
-def page_not_found(e):
-    return render_template('/errors/405.html'), 405
