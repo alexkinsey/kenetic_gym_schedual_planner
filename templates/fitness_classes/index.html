@@ -5,10 +5,16 @@
         <h1>All classes</h1>
         <a href="/classes/new" class="light_grey_button">Create new class</a>
         <div class="content_container_row">
+            <div class="container_row_classes" style="background-color: transparent;">
+                <p class="row_item_left_align">Class</p>
+                <p class="row_item_left_align">Instructor</p>
+                <p class="row_item">Location</p>
+                <p class="row_item_right_align">Date and Time</p>
+            </div>
             {% for fitness_class in all_fitness_classes %}
             <a href="/classes/{{fitness_class.id}}" class="container_row_classes">
                 <p class="row_item_left_align">{{fitness_class.title}}</p>
-                <p class="row_item_left_align">{{fitness_class.trainer.first_name}}</p>
+                <p class="row_item_left_align">{{fitness_class.trainer.first_name}} {{fitness_class.trainer.last_name}}</p>
                 <p class="row_item">{{fitness_class.location.name}}</p>
                 <p class="row_item_right_align">{{fitness_class.date}} at {{ fitness_class.time }}</p>
             </a>

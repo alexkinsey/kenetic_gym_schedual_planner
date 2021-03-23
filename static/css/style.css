@@ -50,6 +50,7 @@ main{
     margin: 15px 0px 0px 0px;
 }
 
+/* classes row setup */
 .container_row_classes{
     display:grid;
     grid-template-columns: 25% 25% 25% 25%;

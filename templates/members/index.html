@@ -5,11 +5,16 @@
     <h1>All members</h1>
     <a href="members/new" class="light_grey_button">Create new member</a>
     <div class="content_container_row">
+        <div class="container_row_members" style="background-color: transparent;">
+            <p class="row_item_left_align">Name</p>
+            <p class="row_item">Membership Tier</p>
+            <p class="row_item_right_align">Join Date</p>
+        </div>
         {% for member in all_members %}
         <a href="/members/{{member.id}}" class="container_row_members">
             <p class="row_item_left_align"> {{member.first_name}} {{member.last_name}} </p>
             <p class="row_item"> {{member.membership.capitalize()}} Membership </p>
-            <p class="row_item_right_align"> Joined {{member.join_date}} </p>
+            <p class="row_item_right_align">{{member.join_date}} </p>
         </a>
         {% endfor %}
     </div>  
