@@ -95,6 +95,7 @@ main{
     justify-self: end;
 }
 
+/* LAYOUT FOR FORM */
 .new_item_form {
     display: grid;
     grid-template-columns: 150px 1fr 1fr;
@@ -167,16 +168,23 @@ main{
     font-size: 25px;
     color: #bdbdbd;
     display: block;
+    cursor: pointer;
 }
-  
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-    color: white;
+.sidenav_button{
+    display: block;
+    /* background: url(/static/images/nav_buttons/home_active.png) ; */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+    height: auto;
+    opacity: 0.8;
+    cursor: pointer;
 }
-.sidenav-active{
-    color: white;
+.sidenav_button:hover {
+    cursor: pointer;
+    opacity: 1;
 }
-  
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
