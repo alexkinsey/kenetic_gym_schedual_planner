@@ -1,22 +1,22 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    <h1>{{ fitness_class.title }} on {{ fitness_class.date }} at {{ fitness_class.time }}</h1>
+<div class="content_container">
+  <h1>{{ fitness_class.title }} on {{ fitness_class.date }} at {{ fitness_class.time }}</h1>
 
-    <form action="/attendances" method="post">
-        <div>
-            <input type="hidden" name="fitness_class_id" value="{{fitness_class.id}}">
-        </div>
-        <div>
-            <label for="member">Member:</label>
-            <select id="member" name="member_id">
-              {% for member in members %}
-                <option value="{{ member.id }}">
-                  {{ member.first_name }} {{member.last_name}} - {{ member.membership }}
-                </option>
-              {% endfor %}
-            </select>
-          </div>
-          <input type="submit">
-    </form>
+  <form action="/attendances" method="post" class="new_item_form">
+    <input type="hidden" name="fitness_class_id" value="{{fitness_class.id}}" class="new_item_input">
+
+    <label for="member" class="new_item_label">Member:</label>
+    <select id="member" name="member_id" class="new_item_input">
+      {% for member in members %}
+        <option value="{{ member.id }}">
+          {{ member.first_name }} {{member.last_name}} - {{ member.membership }}
+        </option>
+      {% endfor %}
+    </select>
+
+  <input type="submit" class="new_item_input">
+  </form>
+</div>
 {% endblock %}
