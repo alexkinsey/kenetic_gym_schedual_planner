@@ -59,4 +59,15 @@ def update(attendance):
     """
     values = [attendance.fitness_class.id, attendance.member.id, attendance.id]
     results = run_sql(sql, values)
-    
+
+def select_by_fitness_class(fitness_class):
+    sql = "SELECT * FROM attendance WHERE fitness_class_id = %s"
+    values = [fitness_class.id]
+    results = run_sql(sql, values)
+    attendance_list = []
+    for row in results:
+        member = member_repo.select(row['member_id'])
+        fitness_class = fitness_class_repo.select(row['fitness_class_id'])
+        attendance = Attendance(fitness_class, member, row['id'])
+        attendance_list.append(attendance)
+    return attendance_list

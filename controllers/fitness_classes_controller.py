@@ -3,6 +3,7 @@ from models.fitness_class import FitnessClass
 import repositories.fitness_class_repo as fitness_class_repo
 import repositories.trainer_repo as trainer_repo
 import repositories.location_repo as location_repo
+import repositories.attendance_repo as attendance_repo
 
 fitness_classes_blueprint = Blueprint('fitness_classes', __name__)
 
@@ -17,7 +18,13 @@ def index():
 def show(id):
     found_fitness_class = fitness_class_repo.select(id)
     found_members = fitness_class_repo.members(found_fitness_class)
-    return render_template('/fitness_classes/show.html', members=found_members, fitness_class=found_fitness_class)
+    calc_availability = found_fitness_class.capacity - len(attendance_repo.select_by_fitness_class(found_fitness_class))
+    return render_template(
+        '/fitness_classes/show.html', 
+        members=found_members, 
+        fitness_class=found_fitness_class, 
+        availability=calc_availability
+    )
 
 # create new fitness class form
 @fitness_classes_blueprint.route('/classes/new', methods=['GET'])
@@ -48,7 +55,12 @@ def edit(id):
     found_fitness_class = fitness_class_repo.select(id)
     all_trainers = trainer_repo.select_all()
     all_locations = location_repo.select_all()
-    return render_template('/fitness_classes/edit.html', fitness_class=found_fitness_class, trainers=all_trainers, locations=all_locations)
+    return render_template(
+        '/fitness_classes/edit.html', 
+        fitness_class=found_fitness_class, 
+        trainers=all_trainers, 
+        locations=all_locations
+    )
 
 # update fitness class db after edits
 @fitness_classes_blueprint.route('/classes/<id>', methods=['POST'])
