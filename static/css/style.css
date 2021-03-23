@@ -20,6 +20,24 @@ main{
     padding: 0px 10px;
 }
 
+/* HOMEPAGE */
+.cover{
+    position: relative;
+}
+.cover_photo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+.cover_text{
+    font-size: 48px;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
 /* CONTENT LAYOUT */
 .content_container{
     border: 1px solid grey;
@@ -40,7 +58,7 @@ main{
 /* members row setup */
 .container_row_members{
     display:grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 1fr 1fr 1fr;
 
     text-decoration: none;
     color: white;
@@ -53,7 +71,7 @@ main{
 /* classes row setup */
 .container_row_classes{
     display:grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     text-decoration: none;
     color: white;
@@ -75,6 +93,20 @@ main{
 .row_item_right_align{
     margin:0px;
     justify-self: end;
+}
+
+.new_item_form {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 5px;
+}
+.new_item_label {
+    grid-column: 1 / 2;
+    justify-self: end;
+}
+.new_item_input {
+    grid-column: 2 / 3;
 }
 
 /* BUTTONS */
