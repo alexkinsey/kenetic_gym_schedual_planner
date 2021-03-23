@@ -65,4 +65,6 @@ def update(id):
         id
     )
     fitness_class_repo.update(fitness_class)
-    return redirect('/classes')
+    id_str = str(fitness_class.id)
+    url = '/classes/' + id_str
+    return redirect(url)

@@ -21,9 +21,11 @@ def update():
     found_member = member_repo.select(request.form['member_id'])
     found_fitness_class = fitness_class_repo.select(request.form['fitness_class_id'])
     attendance = Attendance(found_fitness_class, found_member)
+    id_str = str(found_fitness_class.id)
+    url = '/classes/' + id_str
 
     attendance_repo.save(attendance)
-    return redirect('/classes')
+    return redirect(url)
 
 # delete member from fitness class
 # <id> is customer id
