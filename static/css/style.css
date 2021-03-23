@@ -28,19 +28,52 @@ main{
     width:960px;
     padding:20px;
 }
+
+/* LAYOUT FOR TABLES */
 .content_container_row{
-    margin: 25px 0px 25px 0px;
+    margin: 25px 0px 10px 0px;
 }
-.container_row{
+.content_container_row a:hover{
+    background-color:grey;
+}
+
+/* members row setup */
+.container_row_members{
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+
     text-decoration: none;
     color: white;
     background-color:#5C5C5C;
-    padding: 5px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 25px;
-    margin: 10px 0px 0px 0px;
+
+    padding: 5px 10px 5px 10px;
+    margin: 15px 0px 0px 0px;
+}
+
+.container_row_classes{
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    text-decoration: none;
+    color: white;
+    background-color:#5C5C5C;
+
+    padding: 5px 10px 5px 10px;
+    margin: 15px 0px 0px 0px;
+}
+
+/* justify items in their columns */
+.row_item {
+    margin:0px;
+    justify-self: center;
+}
+.row_item_left_align{
+    margin:0px;
+    justify-self: start;
+}
+.row_item_right_align{
+    margin:0px;
+    justify-self: end;
 }
 
 /* BUTTONS */
@@ -52,6 +85,9 @@ main{
     padding: 10px;
     border-radius: 10px;
 }
+.light_grey_button:hover{
+    background-color:grey;
+}
 .delete_button{
     background-color: #D14F41;
     color: white;
@@ -59,7 +95,11 @@ main{
     padding: 10px;
     border: 1px solid #691109;
     border-radius: 10px;
-    cursor: pointer
+    cursor: pointer;
+    float: right;
+}
+.delete_button:hover{
+    background-color:#b82c1c;
 }
 .circle_delete_button{
     display:block;
@@ -70,6 +110,7 @@ main{
     border-style: solid;
     border-color:#b3b3b3;
     border-radius:100%;
+    /* x within the circle */
     background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, #5C5C5C 46%,  #5C5C61 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, #5C5C5C 46%,  #5C5C5C 56%,transparent 56%, transparent 100%);
     background-color: #b3b3b3;
 }
