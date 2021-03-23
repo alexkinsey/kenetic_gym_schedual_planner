@@ -4,6 +4,7 @@ import repositories.fitness_class_repo as fitness_class_repo
 import repositories.trainer_repo as trainer_repo
 import repositories.location_repo as location_repo
 import repositories.attendance_repo as attendance_repo
+import repositories.member_repo as member_repo
 
 fitness_classes_blueprint = Blueprint('fitness_classes', __name__)
 
@@ -18,13 +19,18 @@ def index():
 def show(id):
     found_fitness_class = fitness_class_repo.select(id)
     found_members = fitness_class_repo.members(found_fitness_class)
+    all_members = member_repo.select_all()
     # availability needs to be calculated to verify where or not the add member to class button is to show
     calc_availability = found_fitness_class.capacity - len(attendance_repo.select_by_fitness_class(found_fitness_class))
+    # check if any members can be added
+    current_attendances = attendance_repo.select_by_fitness_class(found_fitness_class)
+    members_to_add = len(current_attendances) != len(all_members)
     return render_template(
         '/fitness_classes/show.html', 
         members=found_members, 
         fitness_class=found_fitness_class, 
-        availability=calc_availability
+        availability=calc_availability,
+        members_to_add=members_to_add
     )
 
 # create new fitness class form
@@ -84,3 +90,9 @@ def update(id):
     id_str = str(fitness_class.id)
     url = '/classes/' + id_str
     return redirect(url)
+
+# delete current class
+@fitness_classes_blueprint.route('/classes/<id>/delete', methods=['POST'])
+def delete_member(id):
+    fitness_class_repo.delete(id)
+    return redirect('/classes')

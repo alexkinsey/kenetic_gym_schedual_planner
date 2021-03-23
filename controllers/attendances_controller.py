@@ -13,7 +13,20 @@ def sign_up_member_form(id):
     found_fitness_class = fitness_class_repo.select(id)
     all_members = member_repo.select_all()
     all_attendances = attendance_repo.select_all()
-    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=all_members, attendances=all_attendances)
+
+    current_attendances = attendance_repo.select_by_fitness_class(found_fitness_class)
+    not_attending = []
+    # looping around all member to check if they are already attending
+    for member in all_members:
+        on_fitness_class = False
+        for current_attendance in current_attendances:
+            if member.id == current_attendance.member.id:
+                on_fitness_class = True
+                break
+        if not on_fitness_class:
+            not_attending.append(member)
+    return render_template('/attendances/new.html', fitness_class=found_fitness_class, members=not_attending, attendances=all_attendances)
+   
 
 # commit member to fitness class in db
 @attendances_blueprint.route('/attendances', methods=['POST'])
@@ -38,6 +51,4 @@ def delete(id):
     member = member_repo.select(request.form['member_id'])
     fitness_class = fitness_class_repo.select(request.form['fitness_class_id'])
     attendance_repo.delete_by_fitness_class_and_member(fitness_class, member)
-    id_str = str(fitness_class.id)
-    url = '/classes/' + id_str
-    return redirect(url)
+    return redirect('/classes/' + str(fitness_class.id))

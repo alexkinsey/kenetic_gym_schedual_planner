@@ -9,7 +9,7 @@
     <a href="/classes/{{fitness_class.id}}/edit" class="light_grey_button">Edit class details</a>
 
     <h1>Members attending</h1>
-    {% if availability > 0 %}
+    {% if availability > 0 and members_to_add %}
     <a href="/attendances/new/{{ fitness_class.id}}" class="light_grey_button">Add member to class</a>
     <p style="margin-bottom:25px"></p>
     {% endif %}
@@ -25,5 +25,9 @@
             </form>
         </a>
     {% endfor %}
+
+    <form action="/classes/{{ fitness_class.id }}/delete" method="post" style="margin-top:10px;">
+        <input type="submit" value="Delete Account" class="delete_button">
+    </form>
 </div>
 {% endblock %}

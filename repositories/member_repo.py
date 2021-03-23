@@ -20,7 +20,7 @@ def save(member):
 def select_all():
     members = []
 
-    sql = "SELECT * FROM members"
+    sql = "SELECT * FROM members ORDER BY join_date DESC"
     results = run_sql(sql)
 
     for row in results:
@@ -69,6 +69,9 @@ def fitness_classes(member):
         INNER JOIN attendance 
         ON fitness_classes.id = attendance.fitness_class_id
         WHERE member_id = %s
+        ORDER BY 
+        date ASC, 
+        time ASC
     """
     results = run_sql(sql, values)
 
