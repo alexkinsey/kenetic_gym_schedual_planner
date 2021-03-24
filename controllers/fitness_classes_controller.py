@@ -87,9 +87,7 @@ def update(id):
         id
     )
     fitness_class_repo.update(fitness_class)
-    id_str = str(fitness_class.id)
-    url = '/classes/' + id_str
-    return redirect(url)
+    return redirect('/classes/' + str(fitness_class.id))
 
 # delete current class
 @fitness_classes_blueprint.route('/classes/<id>/delete', methods=['POST'])

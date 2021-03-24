@@ -27,9 +27,7 @@ def update():
         attendance_repo.save(attendance)
     else:
         return render_template('/errors/405.html'), 405
-    id_str = str(found_fitness_class.id)
-    url = '/classes/' + id_str
-    return redirect(url)
+    return redirect('/classes/' + str(found_fitness_class.id))
 
 # delete member from fitness class
 # <id> is customer id

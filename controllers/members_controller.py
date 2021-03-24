@@ -39,10 +39,7 @@ def update(id):
         id
     )
     member_repo.update(updated_member)
-
-    id_str = str(updated_member.id)
-    url = '/members/' + id_str
-    return redirect(url)
+    return redirect('/members/' + str(updated_member.id))
 
 # create a new member form
 @members_blueprint.route('/members/new', methods=['GET'])
