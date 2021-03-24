@@ -22,6 +22,10 @@ main{
 }
 
 /* HOMEPAGE */
+.title{
+    display: block;
+    font-weight: 300;
+}
 .logo{
     width: 50%;
     filter: drop-shadow(0px 15px 10px #333333);
@@ -117,6 +121,11 @@ main{
 }
 .new_item_input {
     grid-column: 2 / 3;
+    background-color: #868686;
+    font-size: 16px;
+    color: white;
+    border: 0px solid ;
+    padding: 5px;
 }
 
 /* Misc */
