@@ -43,7 +43,7 @@ main{
     height: auto;
 }
 .cover_text{
-    font-size: 48px;
+    font-size: 32px;
     position: absolute;
     bottom: 8px;
     left: 16px;
