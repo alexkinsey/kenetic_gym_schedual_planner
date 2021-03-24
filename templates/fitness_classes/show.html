@@ -3,7 +3,7 @@
 {% block content %}
 <div class="content_container">
     <h1>{{ fitness_class.title }} with {{ fitness_class.trainer.first_name }}</h1>
-    <h2>{{ fitness_class.date.strftime("%A %B %d, %Y") }} at {{ fitness_class.time.strftime("%I:%M %p") }}</h2>
+    <h2>{{ fitness_class.date.strftime("%A %B %d, %Y") }} at {{ fitness_class.time.strftime("%I:%M%p") }}</h2>
     <p>Held in {{fitness_class.location.name}}</p>
 
     {% if availability <= fitness_class.capacity and availability > 0 %}

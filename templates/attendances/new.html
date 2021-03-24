@@ -7,7 +7,7 @@
   <h3></h3>
 
   {% if (fitness_class.time.hour >= 17 and fitness_class.time.hour <19) or (fitness_class.time.hour >= 7 and fitness_class.time.hour <9) %}
-  <p>This is a premium time slot. Only premium members can be booked.</p>
+  <p>Note: This is a peak time slot. Only premium members can be booked.</p>
   {% endif %}
 
   <form action="/attendances" method="post" class="new_item_form">
