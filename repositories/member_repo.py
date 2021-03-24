@@ -82,3 +82,13 @@ def fitness_classes(member):
         fitness_class = FitnessClass(row['title'], trainer, location, row['date'], row['time'], row['capacity'], row['id'])
         fitness_classes.append(fitness_class)
     return fitness_classes
+
+def get_premium_members():
+    sql = "SELECT members.* FROM members WHERE members.membership = 'premium' "
+    results = run_sql(sql)
+    members = []
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['membership'], 
+        row['join_date'], row['post_code'], row['phone_number'], row['email'], row['id'])
+        members.append(member)
+    return members
