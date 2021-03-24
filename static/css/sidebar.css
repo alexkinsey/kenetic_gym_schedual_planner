@@ -34,15 +34,15 @@
     transform: scale(1.1);
     filter: drop-shadow(0px 5px 5px #222); /* this looks strange in safari */
 }
-.sidebar_button_account{
+.sidebar_logo{
     display: block;
     position: absolute;
     bottom: 0;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 60%;
-    height: auto;
+    max-width: -webkit-fill-available;
+    padding: 20px;
     opacity: 0.5;
-    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.sidebar_logo:hover{
+    opacity: 1;
 }
