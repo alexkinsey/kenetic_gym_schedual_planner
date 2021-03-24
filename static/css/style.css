@@ -1,6 +1,6 @@
 /* GLOBAL */
 html{
-    background-color:#333333;
+    background-color:#252525;
     text-decoration: none;
     color: white;
     min-width: 750px;
@@ -79,7 +79,7 @@ main{
 /* classes row setup */
 .container_row_classes{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
 
     text-decoration: none;
     color: white;

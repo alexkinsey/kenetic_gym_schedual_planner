@@ -11,8 +11,6 @@ attendances_blueprint = Blueprint('attendances', __name__)
 @attendances_blueprint.route('/attendances/new/<id>', methods=['GET'])
 def sign_up_member_form(id):
     found_fitness_class = fitness_class_repo.select(id)
-    
-    # print(type(found_fitness_class.time))
     if (found_fitness_class.time.hour >= 17 and found_fitness_class.time.hour <19) or (found_fitness_class.time.hour >= 7 and found_fitness_class.time.hour <9):
         not_attending = fitness_class_repo.not_members_premium(found_fitness_class)
     else:
