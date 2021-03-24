@@ -3,7 +3,7 @@
 {% block content %}
 <div class="content_container">
     <h1>{{member.first_name}} {{member.last_name}} - {{member.membership.capitalize()}} Member</h1>
-    <p>Joined: {{member.join_date}}</p>
+    <p>Joined: {{member.join_date.strftime("%d/%m/%Y")}}</p>
     <h3>Contact info:</h3>
     <p>Phone number: {{member.phone_number}}</p>
     <p>Email: {{member.email}}</p>
@@ -20,7 +20,7 @@
             <p class="row_item_left_align">{{fitness_class.title}}</p>
             <p class="row_item_left_align">{{fitness_class.trainer.first_name}} {{fitness_class.trainer.last_name}}</p>
             <p class="row_item">{{fitness_class.location.name}}</p>
-            <p class="row_item_right_align">{{fitness_class.date}}</p> 
+            <p class="row_item_right_align">{{fitness_class.date.strftime("%a %b %d")}} at {{ fitness_class.time.strftime("%I:%M %p") }}</p> 
         </a>
     {% endfor %}
     </div>

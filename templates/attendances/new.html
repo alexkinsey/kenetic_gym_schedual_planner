@@ -2,7 +2,13 @@
 
 {% block content %}
 <div class="content_container">
-  <h1>{{ fitness_class.title }} on {{ fitness_class.date }} at {{ fitness_class.time }}</h1>
+  <h1>Add a member to: {{ fitness_class.title }} with {{ fitness_class.trainer.first_name }} {{ fitness_class.trainer.last_name }}</h1>
+  <h3>{{ fitness_class.date.strftime("%A %B %d, %Y") }} at {{ fitness_class.time.strftime("%I:%M%p") }}  in {{fitness_class.location.name}}</h3>
+  <h3></h3>
+
+  {% if (fitness_class.time.hour >= 17 and fitness_class.time.hour <19) or (fitness_class.time.hour >= 7 and fitness_class.time.hour <9) %}
+  <p>This is a premium time slot. Only premium members can be booked.</p>
+  {% endif %}
 
   <form action="/attendances" method="post" class="new_item_form">
     <input type="hidden" name="fitness_class_id" value="{{fitness_class.id}}" class="new_item_input">
