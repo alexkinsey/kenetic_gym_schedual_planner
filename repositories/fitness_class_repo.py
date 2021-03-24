@@ -84,6 +84,7 @@ def not_members(fitness_class):
 	    SELECT FROM attendance
 	    WHERE members.id = attendance.member_id
 	    AND attendance.fitness_class_id = %s)
+        ORDER BY last_name ASC, first_name ASC
     """
     values = [fitness_class.id]
     results = run_sql( sql, values )
@@ -103,6 +104,7 @@ def not_members_premium(fitness_class):
 	    WHERE members.id = attendance.member_id
 	    AND attendance.fitness_class_id = %s)
         AND members.membership = 'premium'
+        ORDER BY last_name ASC, first_name ASC
     """
     values = [fitness_class.id]
     results = run_sql( sql, values )
