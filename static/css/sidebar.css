@@ -1,0 +1,48 @@
+/* SIDEBAR */
+.sidebar {
+    height: 100%;
+    width: 100px; 
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    /* background-color: #325D6A; colour */
+    background-color: #444444; /* grey */
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+.sidebar a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #bdbdbd;
+    display: block;
+    cursor: pointer;
+}
+.sidebar_button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.95;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.sidebar_button:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0px 5px 5px #222); /* this looks strange in safari */
+}
+.sidebar_button_account{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60%;
+    height: auto;
+    opacity: 0.5;
+    cursor: pointer;
+}

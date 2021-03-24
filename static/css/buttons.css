@@ -1,0 +1,53 @@
+/* BUTTONS */
+.light_grey_button{
+    text-decoration: none;
+    color: white;
+    background-color: #5C5C5C;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all .1s ease-in-out;
+}
+.light_grey_button:hover{
+    background-color:#4b99a3;
+}
+.light_grey_button:active{
+    background-color:#325D6A;
+}
+
+.delete_button{
+    background-color: #D14F41;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #691109;
+    border-radius: 10px;
+    cursor: pointer;
+    float: right;
+    transition: all .1s ease-in-out;
+}
+.delete_button:hover{
+    background-color:#b82c1c;
+}
+.delete_button:active{
+    background-color:#691109;
+}
+
+.circle_delete_button{
+    display:block;
+    box-sizing:border-box;
+    width:25px;
+    height:25px;
+    border-width:5px;
+    border-style: solid;
+    border-color:#b3b3b3;
+    border-radius:100%;
+    /* x within the circle */
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, #5C5C5C 46%,  #5C5C61 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, #5C5C5C 46%,  #5C5C5C 56%,transparent 56%, transparent 100%);
+    background-color: #b3b3b3;
+    transition: all .1s ease-in-out;
+}
+.circle_delete_button:hover{
+    border-color:white;
+    background-color: white;
+}
